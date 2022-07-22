@@ -1,0 +1,34 @@
+{
+    "name": "michaeluno/php-simple-web-scraper",
+    "description": "A PHP application which runs on Heroku and dumps web site outputs including JavaScript generated contents.",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "type": "application",
+    "authors": [
+        {
+            "name": "Michael Uno",
+            "email": "michael2@michaeluno.jp"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.20",
+        "ext-mbstring": "*",
+        "ext-json": "*",
+        "jakoch/phantomjs-installer": "3.0.0 as 2.1.1-p08",
+        "jonnyw/php-phantomjs": "4.6.1",
+        "michaeluno/php-classmap-generator": "1.*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ],
+        "post-update-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPSimpleWebScraper\\": "web/include/class/"
+        }
+    }
+}
